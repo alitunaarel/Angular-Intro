@@ -1,16 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from './product';
+declare let alertify:any;
 
 @Component({
   selector: 'app-product',
-  template: `<p> {{name}} </p>`,
+  templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
 
   constructor() { }
-  name = "Laptop"
+  title= "Urun listesi"
+  filterText = ""
+  products : Product[] = [
+    {id:1, name: "Laptop", price: 2500, categoryId:1, description:"Asus ZenBook",imageUrl:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"},
+    {id:2, name: "Mouse", price: 25, categoryId:2, description:"A4 tech",imageUrl:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"},    
+    {id:2, name: "Mouse", price: 25, categoryId:2, description:"A4 tech",imageUrl:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"} ,   
+    {id:2, name: "Mouse", price: 25, categoryId:2, description:"A4 tech",imageUrl:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"} ,   
+    {id:2, name: "Mouse", price: 25, categoryId:2, description:"A4 tech",imageUrl:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"}  ,  
+    {id:2, name: "Mouse", price: 25, categoryId:2, description:"A4 tech",imageUrl:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"}    
+  ]
 
   ngOnInit(): void {
+  }
+
+  addToCart(product){
+    alertify.success(product.name + " added")
   }
 
 }
